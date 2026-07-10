@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme{
+
+    --color-gank-050: #f5edf7;
+  --color-gank-100: #f9e2ff;
+  --color-gank-200: #c98bd9;
+  --color-gank-300: #af5ec4;
+  --color-gank-400: #9738b0;
+  --color-gank-500: #81199c;
+  --color-gank-600__main: #6c0088;
+  --color-gank-700: #4b025e;
+  --color-gank-800: #2b0236;
+  --color-gank-900: #130117;
+  --color-gank-950: #0c000f;
+  --color-gank-grayish-100: #8f7c94;
+
+  --color-gank-p: #BBB3BC;
+
+  --color-gank-mutted-100: #88848A;
+  --color-gank-p-100: #FBF8FC;
+  --color-gank-p-200: #BAB2BD;
+  
+  --color-gank-shades-100: #161118;
+  --color-gank-shades-200: #201C22;
+
+  --color-gank-green: #00E043;
+  --color-gank-redness: #F5006E; 
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+
+p{
+  @apply text-base text-gank-p-200;
+  line-height: 25.6px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+h1{
+  @apply text-6xl lg:text-7xl text-gank-p-100;
+  line-height: 1.22;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+h2{
+  @apply text-3xl lg:text-6xl text-gank-p-100;
+  line-height: 1.22;
+}
+
+h3{
+  @apply text-2xl text-gank-p-100;
+  line-height: 38.4px;
 }
