@@ -5,7 +5,6 @@ import TypeH1 from '../components/typography/TypeH1';
 import BlackHoleBackground from '../components/animated/BlackHoleBackground';
 
 import gank from '@/app/assets/01-hero/Gank.png';
-import G from '@/app/assets/01-hero/G.svg';
 import Image from 'next/image';
 
 export default function Hero() {
@@ -33,7 +32,7 @@ export default function Hero() {
             </div>
 
             <TypeH1 className="text-white mt-6 mb-6">
-              <span className="bg-gank-600__main px-4 lg:inline-block">Pare de depender</span> de indicação para faturar no seu negócio
+              <span className="lg:bg-gank-600__main px-4 lg:inline-block">Pare de depender</span> de indicação para faturar no seu negócio
             </TypeH1>
 
             <p className="mb-8 text-gank-p-200 text-lg lg:text-xl">
