@@ -1,7 +1,6 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
 import Badge from './Badge'
-// import TypeH2 from '../typography/TypeH2'
 import TypeH2 from '../typography/TypeH2Wrapper'
 
 const SectionHeader = ({badgeIcon, badgeLabel, title, label, className}) => {

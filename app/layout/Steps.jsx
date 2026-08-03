@@ -3,9 +3,14 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Badge from '../components/ui/Badge';
+import TypeH2 from '../components/typography/TypeH2Wrapper';
 import Wrapper from '../components/ui/Wrapper';
 import SectionHeader from '../components/ui/SectionHeader';
 import { HeartPulse, Blocks, ImageUp, SearchCheck } from 'lucide-react';
+
+import gank from '@/app/assets/01-hero/Gank.svg';
+import Image from 'next/image';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -117,26 +122,34 @@ export default function Steps() {
 
           cards.forEach((card, i) => {
             // A carta atual sobe e aparece
-            tlMobile.to(card, { autoAlpha: 1, y: 0, duration: 1, zIndex: i + 1 }, `m_step${i}`);
+            tlMobile.to(
+              card,
+              { autoAlpha: 1, y: 0, duration: 1, zIndex: i + 1 },
+              `m_step${i}`,
+            );
 
             // A carta anterior rotaciona levemente
             if (i > 0) {
               // Lógica para alternar esquerda/direita:
               // i=1 (rotaciona card 0 p/ esquerda), i=2 (rotaciona card 1 p/ direita)...
               const rotationAngle = i % 2 !== 0 ? -6 : 6;
-              tlMobile.to(cards[i - 1], { rotation: rotationAngle, duration: 1 }, `m_step${i}`);
+              tlMobile.to(
+                cards[i - 1],
+                { rotation: rotationAngle, duration: 1 },
+                `m_step${i}`,
+              );
             }
           });
 
           // Pausa extra para permitir a leitura da última carta antes de destravar
           tlMobile.to({}, { duration: 1 });
         }
-      }
+      },
     );
 
     return () => {
-      // O clearProps é essencial aqui. Se o usuário estiver no celular e virar 
-      // a tela deitado (acionando o breakpoint do desktop), ele limpa os z-index 
+      // O clearProps é essencial aqui. Se o usuário estiver no celular e virar
+      // a tela deitado (acionando o breakpoint do desktop), ele limpa os z-index
       // absolutos e devolve as cartas ao layout do grid.
       gsap.set('.step-card', { clearProps: 'all' });
       mm.revert();
@@ -158,6 +171,21 @@ export default function Steps() {
           className="lg:max-w-1/2 flex-col mx-auto text-center mb-12 lg:mb-20"
         />
 
+        {/* <header className="lg:max-w-1/2 flex-col mx-auto text-center mb-12 lg:mb-20">
+          <Badge icon="workflow">Sua nova estrutura</Badge>
+          <TypeH2 className="mb-2 text-center!">
+            Como a{' '}
+            <Image
+              src={gank}
+              alt="logo"
+              width={80}
+              className="inline-block mx-auto text-center"
+            />{' '}
+            estrutura seu crescimento
+          </TypeH2>
+          <p>Aqui, o crescimento da sua empresa funciona com pilares lógicos</p>
+        </header> */}
+
         {/* No Desktop: Utiliza o Grid normal. 
           No Mobile: Ganha min-h-[350px] e relative para ser o palco onde as cartas absolutas vão se empilhar.
         */}
@@ -167,8 +195,13 @@ export default function Steps() {
               key={index}
               className="step-card absolute inset-0 lg:static flex flex-col items-center justify-center lg:block p-8 lg:p-0 bg-gank-shades-200 lg:bg-transparent border border-gank-p-200/20 lg:border-none rounded-2xl lg:rounded-none text-center shadow-2xl lg:shadow-none lg:mb-12"
             >
-                <div className="flex h-16 w-16 items-center justify-center mb-6 mx-auto rounded-lg shadow-2xl bg-gank-shades-100 lg:bg-transparent lg:size-10">
-                <step.Icon width={40} height={40} className="text-white lg:text-gank-p-100" aria-hidden="true" />
+              <div className="flex h-16 w-16 items-center justify-center mb-6 mx-auto rounded-lg shadow-2xl bg-gank-shades-100 lg:bg-transparent lg:size-10">
+                <step.Icon
+                  width={40}
+                  height={40}
+                  className="text-white lg:text-gank-p-100"
+                  aria-hidden="true"
+                />
               </div>
               <h3 className="text-2xl lg:text-lg font-semibold mb-4 lg:mb-2 text-white">
                 {step.cardTitle}

@@ -28,15 +28,13 @@
   --color-gank-redness: #F5006E; 
 }
 
-
-
 p{
   @apply text-base text-gank-p-200;
   line-height: 25.6px;
 }
 
 h1{
-  @apply text-6xl lg:text-7xl text-gank-p-100;
+  @apply text-5xl lg:text-7xl text-gank-p-100;
   line-height: 1.22;
 }
 
@@ -49,3 +47,31 @@ h3{
   @apply text-2xl text-gank-p-100;
   line-height: 38.4px;
 }
+
+/*Animação do Buraco Negro na seção Hero*/
+
+@keyframes suck-in {
+  0% { transform: translate(var(--startX), var(--startY)) scale(1); opacity: 0; }
+  10% { opacity: var(--maxOpacity); }
+  70% { opacity: var(--maxOpacity); }
+  100% { transform: translate(0px, 0px) scale(0); opacity: 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-suck-in {
+  animation: suck-in var(--duration) cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  animation-delay: var(--delay);
+}
+
+.animate-ring-spin { animation: spin-slow 30s linear infinite; }
+.animate-ring-spin-fast { animation: spin-slow 20s linear infinite; }
+.animate-ring-spin-reverse { animation: spin-reverse 25s linear infinite; }

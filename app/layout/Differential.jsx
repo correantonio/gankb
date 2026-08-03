@@ -16,18 +16,22 @@ const DIFFERENTIAL_LIST = [
   {
     icon: <HeartHandshake size={40} color={'#f9e2ff'}/>,
     label: 'Não focamos em curtida, focamos em cliente',
+    // img: firstImage
   },
   {
     icon: <MousePointerClick size={40} color={'#f9e2ff'}/>,
     label: 'Estratégia baseada em resultado real',
+    // img: firstImage
   },
   {
     icon: <Megaphone size={40} color={'#f9e2ff'}/>,
     label: 'Você fala com quem executa',
+    // img: firstImage
   },
   {
     icon: <Clover size={40} color={'#f9e2ff'}/>,
     label: 'Nada de “postar e torcer”',
+    // img: firstImage
   },
 ];
 

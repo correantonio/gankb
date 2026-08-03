@@ -30,9 +30,8 @@ const Ending = () => {
         className="mx-auto text-center lg:max-w-5/12 pt-20 lg:mb-0 px-4"
       />
       <Wrapper className="lg:flex-col items-center gap-10">
-        <div className='lg:flex gap-10 mx-auto'>
+        <div className="lg:flex gap-10 mx-auto">
           {ENDING_LIST.map(({ icon: IconComponent, label }, index) => {
-      
             return (
               <div
                 key={index}
@@ -51,7 +50,12 @@ const Ending = () => {
             );
           })}
         </div>
-        <Button>Quero mais clientes com previsibilidade</Button>
+        <div className="flex flex-col items-center gap-2 lg:items-start lg:gap-4">
+          <Button>Quero mais clientes</Button>
+          <small className="text-gank-p-200">
+            Tenha a previsibilidade que seu negócio precisa
+          </small>
+        </div>
       </Wrapper>
     </footer>
   );
